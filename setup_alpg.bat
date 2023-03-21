@@ -1,0 +1,1 @@
+ren alpg_file.sh alpg.sh

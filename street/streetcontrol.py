@@ -32,7 +32,7 @@ if useCtrl:
 	else:
 		rootctrl = GroupCtrl("GroupController",  sim)
 	rootctrl.useEventControl = useEC
-	rootctrl.minImprovement = 1
+	rootctrl.minImprovement = 0.001
 	rootctrl.planHorizon = 2*int(24*3600/ctrlTimeBase)
 	rootctrl.planInterval = int(24*3600/ctrlTimeBase)
 	rootctrl.isFleetController = True
@@ -67,7 +67,7 @@ elif usePlAuc:
 	else:
 		rootctrl = PaGroupCtrl("GroupController",  sim)
 	rootctrl.useEventControl = useEC
-	rootctrl.minImprovement = 1
+	rootctrl.minImprovement = 0.001
 	rootctrl.timeBase = ctrlTimeBase
 	rootctrl.planHorizon = 2*int(24*3600/ctrlTimeBase)
 	rootctrl.planInterval = int(24*3600/ctrlTimeBase)

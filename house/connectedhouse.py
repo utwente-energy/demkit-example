@@ -38,18 +38,19 @@ def addHouse(node, coordx, coordy, phase, houseNum):
 
 	if useCtrl:
 		if useCongestionPoints:
-			ctrl = GroupCtrl("HouseController-House-"+str(houseNum),  sim , rootctrl) #, cph)
+			ctrl = GroupCtrl("HouseController-House-"+str(houseNum),  sim , rootctrl, cph)
 		else:
 			ctrl = GroupCtrl("HouseController-House-"+str(houseNum),  sim , rootctrl) #params: name, simHost
-		ctrl.minImprovement = 1
+		ctrl.minImprovement = 0.001
 		ctrl.timeBase = ctrlTimeBase	# 900 is advised hre, must be a multiple of the simulation timeBase
 		ctrl.useEventControl = useEC	# Enable / disable event-based control
 		ctrl.isFleetController = False 	# Very important to set this right in case of large structures. The root controller needs to be a fleetcontroller anyways. See 4.3 of Hoogsteen's thesis
 		ctrl.initialPlan = True
+		ctrl.simultaneousCommits = 1
 		ctrl.strictComfort = not useIslanding
+
 		ctrl.planHorizon = 2*int(24*3600/ctrlTimeBase)
 		ctrl.planInterval = int(24*3600/ctrlTimeBase)
-
 		ctrl.commodities = list(commodities)	# Overwrite the list of commodities
 		ctrl.weights = dict(weights)			# Overwrite the weights
 
@@ -72,8 +73,7 @@ def addHouse(node, coordx, coordy, phase, houseNum):
 			ctrl = PaGroupCtrl("HouseController-House-"+str(houseNum),  sim, rootctrl, cph)
 		else:
 			ctrl = PaGroupCtrl("HouseController-House-"+str(houseNum),  sim, rootctrl)
-		ctrl.minImprovement = 1
-		ctrl.maxIters = 4
+		ctrl.minImprovement = 0.0001
 		ctrl.timeBase = ctrlTimeBase	# 900 is advised hre, must be a multiple of the simulation timeBase
 		ctrl.useEventControl = useEC	# Enable / disable event-based control
 		ctrl.isFleetController = False 	# Very important to set this right in case of large structures. The root controller needs to be a fleetcontroller anyways. See 4.3 of Hoogsteen's thesis

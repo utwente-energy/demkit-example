@@ -23,6 +23,9 @@ def addHouse(node, coordx, coordy, phase, houseNum):
 	if node is not None:
 		node.addMeter(sm, phase)
 
+	# Setting controller default to None:
+	ctrl = None
+
 # ADDING A HEMS
 	#add a controller if necessary
 	if useCongestionPoints:

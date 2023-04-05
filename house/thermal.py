@@ -19,7 +19,7 @@
 	idx = alpg.indexFromFile(alpgFolder + "HeatingSettings.txt", houseNum)
 
 	# An overall setting to disable/enable discrete heating:
-	discrete = False
+	discrete = True
 
 	# Creating a controller for the heating system
 
@@ -55,7 +55,7 @@
 		heatsysctrl.isFleetController = False  # Very important to set this right in case of large structures. The root controller needs to be a fleetcontroller anyways. See 4.3 of Hoogsteen's thesis
 		if ctrl is None:
 			heatsysctrl.isFleetController = True  # Very important to set this right in case of large structures. The root controller needs to be a fleetcontroller anyways. See 4.3 of Hoogsteen's thesis
-		heatsysctrl.initialPlan = True
+		heatsysctrl.initialPlan = False
 		heatsysctrl.simultaneousCommits = 1
 		heatsysctrl.strictComfort = not useIslanding
 
@@ -244,13 +244,13 @@
 		# Heatpump has not enough power to provide tapwater, so we need another to heat water. Note that the generic heatsource is not applicable to planning
 		dhwsrc = HeatPumpDev("HeatPump-DHW-House-" + str(houseNum), sim)
 		dhwsrc.producingTemperatures = [0, 60.0]
-		dhwsrc.producingPowers = [0, 2000]
+		dhwsrc.producingPowers = [0, 4000]
 		dhwsrc.capacity = 14000
 		dhwsrc.perfectPredictions = usePP
 		dhwsrc.strictComfort = not useIslanding
 		dhwsrc.islanding = useIslanding
 		dhwsrc.commodities = [elPhase, 'HEAT']
-		dhwsrc.cop = {elPhase: 1.0}  # Pretty common CoP, each unit of electricity consumed produces 4 units of heat
+		dhwsrc.cop = {elPhase: 2.0}  # Pretty common CoP, each unit of electricity consumed produces 4 units of heat
 
 		dhwsrc.discrete = discrete
 

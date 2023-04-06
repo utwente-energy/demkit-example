@@ -16,11 +16,11 @@ from datetime import datetime
 from pytz import timezone
 
 timeZone = timezone('Europe/Amsterdam')
-startTime = int(timeZone.localize(datetime(2023, 1, 29)).timestamp())
+startTime = int(timeZone.localize(datetime(2023, 4, 29)).timestamp())
 timeOffset = -1 * int(timeZone.localize(datetime(2023, 1, 1)).timestamp())
 
 timeBase = 60 # Default timebase
-intervals = 7*24*int(3600/timeBase)	# Simulating 7 days of data (calculations based on the timeBase)
+intervals = 60*24*int(3600/timeBase)	# Simulating 7 days of data (calculations based on the timeBase)
 
 
 # Data storage settings

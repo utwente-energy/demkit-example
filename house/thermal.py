@@ -97,8 +97,8 @@
 	thermostat.temperatureSetpointCooling = 23.0
 	thermostat.temperatureMin = 18.5  # min setpoint temperature for the zone (turn on heating overnight on cold days)
 	thermostat.temperatureMax = 23.0  # max setpoint temperature for the zone (turn on cooling when above)
-	thermostat.temperatureDeadband = [-0.5, 0.0, 5.0,
-	                                  5.5]  # deadband control: [Below heating setpoint (HEAT), Above Heating setpoint (OFF), Below Cooling setpoint (OFF), Above Cooling setpoint (COOL)]
+	thermostat.temperatureDeadband = [-0.5, 0.0, 0.0,
+	                                  0.5]  # deadband control: [Below heating setpoint (HEAT), Above Heating setpoint (OFF), Below Cooling setpoint (OFF), Above Cooling setpoint (COOL)]
 	thermostat.preheatingTime = 3600  # Preaheating time in seconds before the actual starttime
 	thermostat.perfectPredictions = usePP
 	thermostat.timeBase = ctrlTimeBase

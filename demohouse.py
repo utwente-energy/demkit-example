@@ -31,9 +31,9 @@ composer.add("environment/global.py")
 composer.add("house/disconnectedhouse.py")
 composer.add("house/baseload.py")
 composer.add("house/pv.py")
-composer.add("house/timeshifters.py")
-composer.add("house/electricvehicle.py")
-composer.add("house/battery.py")
+# composer.add("house/timeshifters.py")
+# composer.add("house/electricvehicle.py")
+# composer.add("house/battery.py")
 composer.add("house/thermal.py")
 # End of a household definition
 

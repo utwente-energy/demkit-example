@@ -124,7 +124,7 @@
 	elif heat_specs[idx][0] == "HP":
 		heatsource = HeatPumpDev("HeatPump-House-" + str(houseNum), sim)
 		heatsource.producingTemperatures = [0, 35.0]
-		heatsource.producingPowers = [0, 5500]  # use [-4500, 4500] for cooling, but this is unsported yet
+		heatsource.producingPowers = [0, 2500, 3500, 4500, 5500]  # use [-4500, 4500] for cooling, but this is unsported yet
 		heatsource.commodities = [elPhase, 'HEAT']
 		heatsource.cop = {elPhase: 5.0}  # Pretty common CoP, each unit of electricity consumed produces 4 units of heat
 	else:
@@ -197,7 +197,7 @@
 		if heat_specs[idx][0] == "HP":
 			coolsource = HeatPumpDev("HeatPump-Cooler-House-" + str(houseNum), sim)
 			coolsource.producingTemperatures = [0, 35.0]
-			coolsource.producingPowers = [-5500, 0]  # use [-4500, 4500] for cooling, but this is unsported yet
+			coolsource.producingPowers = [-5500, -4500, -3500, -2500, 0]  # use [-4500, 4500] for cooling, but this is unsported yet
 			coolsource.commodities = [elPhase, 'HEAT']
 			coolsource.cop = {
 				elPhase: 27.0}  # Pretty common CoP, each unit of electricity consumed produces 4 units of heat
@@ -244,7 +244,7 @@
 		# Heatpump has not enough power to provide tapwater, so we need another to heat water. Note that the generic heatsource is not applicable to planning
 		dhwsrc = HeatPumpDev("HeatPump-DHW-House-" + str(houseNum), sim)
 		dhwsrc.producingTemperatures = [0, 60.0]
-		dhwsrc.producingPowers = [0, 4000]
+		dhwsrc.producingPowers = [0, 2000, 3000, 4000]
 		dhwsrc.capacity = 14000
 		dhwsrc.perfectPredictions = usePP
 		dhwsrc.strictComfort = not useIslanding

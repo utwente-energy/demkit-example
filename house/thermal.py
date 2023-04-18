@@ -53,7 +53,7 @@
 		heatsysctrl.timeBase = ctrlTimeBase  # 900 is advised hre, must be a multiple of the simulation timeBase
 		heatsysctrl.useEventControl = useEC  # Enable / disable event-based control
 		heatsysctrl.isFleetController = False  # Very important to set this right in case of large structures. The root controller needs to be a fleetcontroller anyways. See 4.3 of Hoogsteen's thesis
-		if ctrl is None:
+		if not useCtrl:
 			heatsysctrl.isFleetController = True  # Very important to set this right in case of large structures. The root controller needs to be a fleetcontroller anyways. See 4.3 of Hoogsteen's thesis
 		heatsysctrl.initialPlan = False
 		heatsysctrl.simultaneousCommits = 1

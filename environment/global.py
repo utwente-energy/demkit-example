@@ -18,3 +18,9 @@ weather.weatherFile = "data/weather/temperature.csv"
 
 sun = SunEnv("Sun", sim)
 sun.irradianceFile = 'data/weather/solarirradiation.csv'
+
+co2 = Co2Env("Emissions", sim)	# Based on ODECT 
+co2.co2File = 'data/co2_2023.csv'	
+
+prices = ElectricityPriceEnv("ElectricityPrice", sim)
+prices.priceFile = 'data/prices_2023.csv'	

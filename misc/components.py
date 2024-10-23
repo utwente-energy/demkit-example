@@ -41,6 +41,8 @@ from ctrl.thermal.thermostat import Thermostat
 # Environment
 from environment.sunEnv import SunEnv
 from environment.weatherEnv import WeatherEnv
+from environment.co2Env import Co2Env
+from environment.electricityPriceEnv import ElectricityPriceEnv
 
 from dev.meterDev import MeterDev			# Meter device that aggregates the load of all individual devices
 
